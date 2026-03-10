@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Formulario de recogida de info</title>
+</head>
+
+<body>
+    <h1>Formulario de recogida de información</h1>
+    <form action="/submit" method="post">
+        <details>
+            <summary>Informacion Personal</summary>
+        
+        <table>
+            <tr>
+                <td>
+                    <label for="txtNombre">Nombre:</label>
+                    <input type="text" id="txtNombre" size="15" maxlength="20" required>
+
+                    &nbsp;<label for="txtApellido">Apellido:</label>
+                    <input type="text" id="txtApellido" size="15" maxlength="20" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="txtNac">Nacimiento:</label>
+                    <input type="date" id="txtNac" required>
+
+                    &nbsp;<label for="txtLocalidad">Localidad:</label>
+                    <input type="text" id="txtLocalidad" list="localidades" required>
+                    <datalist id="localidades">
+                        <option value="Madrid"></option>
+                        <option value="Barcelona"></option>
+                        <option value="Valencia"></option>
+                        <option value="Sevilla"></option>
+                        <option value="Zaragoza"></option>
+                        <option value="Málaga"></option>
+                        <option value="Murcia"></option>
+                        <option value="Palma"></option>
+                        <option value="Las Palmas"></option>
+                        <option value="Bilbao"></option>
+                    </datalist>
+                </td>
+            </tr>
+        </table>
+        </details>
+
+        <fieldset>
+            <legend>Actividades</legend>
+            <input type="checkbox" id="checkAjedrez" name="actividad" value="yes">
+            <label for="checkAjedrez">Ajedrez</label>
+
+            <input type="checkbox" id="checkCine" name="actividad" value="yes">
+            <label for="checkCine">Ir al Cine</label>
+
+            <input type="checkbox" id="checkTenis" name="actividad" value="yes">
+            <label for="checkTenis">Jugar al Tenis</label><br>
+
+            <input type="checkbox" id="checkGuitarra" name="actividad" value="yes">
+            <label for="checkGuitarra">Guitarra</label>
+
+            <input type="checkbox" id="checkTmesa" name="actividad" value="yes">
+            <label for="checkTmesa">Tenis de Mesa</label>
+
+            <input type="checkbox" id="checkPiano" name="actividad" value="yes">
+            <label for="checkPiano">Piano/Jazz</label>
+        </fieldset>
+
+        <table>
+            <tr>
+                <td>
+                    Turno preferido:<br>
+                    <input type="radio" name="rbtTurno" id="rbtMañana">Mañana<br>
+                    <input type="radio" name="rbtTurno" id="rbtTarde">Tarde<br>
+                    <input type="radio" name="rbtTurno" id="rbtNoche">Noche
+                </td>
+                <td>
+                    &nbsp;&nbsp; Nivel:<br>
+                    &nbsp;&nbsp;<input type="radio" name="rbtnivel" id="rbtBasico">Básico<br>
+                    &nbsp;&nbsp;<input type="radio" name="rbtnivel" id="rbtMedio">Medio<br>
+                    &nbsp;&nbsp;<input type="radio" name="rbtnivel" id="rbtAvanzado">Avanzado
+                </td>
+            </tr>
+        </table>
+        <label for="txtColorTexto">Selecciona un color para el texto:</label>
+        <input type="color" id="txtColorTexto" name="txtColorTexto" onchange="cambiarColorTexto()"><br><br>
+
+        <label for="txtColorFondo">Selecciona un color para el fondo:</label>
+        <input type="color" id="txtColorFondo" name="txtColorFondo" onchange="cambiarColorFondo()">
+    </form>
+    <script>
+        function cambiarColorTexto() {
+            document.fgColor = document.getElementById("txtColorTexto").value;
+        }
+        function cambiarColorFondo() {
+            document.bgColor = document.getElementById("txtColorFondo").value;
+        }
+
+    </script>
+</body>
+
+</html>

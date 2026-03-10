@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        svg {
+            border: 2px solid black;
+            background-color: rgb(53, 143, 80);
+        }
+    </style>
+
+    <title>Graficos svg</title>
+</head>
+
+<body>
+    <h1>Incrustrar graficos SVG directamente</h1>
+    <p>
+
+        <svg width="300" height="100">
+            <ellipse ry="45" rx="140" cy="50" cx="150" fill="red" stroke="black" stroke-width="10" />
+            <text text-anchor="middle" font-size="60" y="67" x="150" fill="black">SVG</text>
+        </svg>
+    </p>
+    <hr>
+    <p>
+        <svg>
+            <rect x="50" y="50" width="100" height="75" rx ="10" ry="10" fill="blue" stroke="yellow" stroke-width="3" stroke-dasharray="2,2"/>
+            <rect x="75" y="75" width="100" height="75"  fill="yellow" stroke="green"/>
+        </svg>
+    </p>
+    <hr>
+    <p>
+        <svg>
+            <circle cx="120" cy="80" r="40" fill="orange" stroke="purple" stroke-width="5" />
+            <polyline points="105 100, 120 100, 125 90, 135 110, 145 90, 155 110, 165 90, 175 110, 180 100, 195 100" stroke="black" stroke-width="4"/>
+        </svg>
+    </p>
+    <p>
+        <svg>
+            <polygon points="110 70, 150 40, 190 70, 190 160, 150 130,110 160" fill="pink" stroke="purple" stroke-width="5"/>
+        </svg>
+    </p>
+    <hr>
+    <p>
+        <svg>
+            <path d="M 150 50 L 250 150 L 50 150 Z" stroke="brown" stroke-width="8"/>
+        </svg>
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Trabajo botones de opcion</title>
+</head>
+<body>
+    <h1>Los botones de opción</h1>
+    <form>
+        <fieldset onchange="calificar()">
+            <legend>Dime tu edad</legend>
+            <input type="radio" name="optEdad" id=optJoven value="Joven" >
+            Menos de 35
+            <br>
+            <input type="radio" name="optEdad" id="optMaduro" value="Maduro">
+            Entre 35 y 65
+            <br>
+            <input type="radio" name="optEdad" id="optExperto" value="Experto">
+            Más de 65
+            <br>
+            <input type="text" id="txtSalida">
+        </fieldset>
+    </form>
+    
+
+    <script>
+        function calificar(){
+            let salida = document.getElementById("txtSalida");
+            let botones = document.getElementsByName("optEdad");
+
+            for(let i = 0; i < botones.length; i++){
+                if(botones[i].checked){
+                    salida.value = botones[i].value;
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

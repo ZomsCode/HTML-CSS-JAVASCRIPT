@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Cambiar imagen</title>
+</head>
+<body>
+    <h1>Trabajar con objetos de imagen</h1>
+
+    <p>
+        Selecciona un animal:
+        <select id="selAnimales" onchange="cambiar()">
+            <option selected disabled>  </option>
+            <option >Oso Polar</option>
+            <option >Rinoceronte blanco</option>
+            <option >Elefante</option>
+            <option >Tiburón Martillo</option>
+            <option >Tigre de Bengala</option>
+        </select>
+    </p>
+    <hr>
+    <form>
+        <fieldset onchange="coches()">
+            <legend>Selecciona tu coche favorito</legend>
+            <input type="radio" name="optCoche" id=optMustang  >
+            Ford Mustang
+            <br>
+            <input type="radio" name="optCoche" id="optCupra" >
+            Cupra Leon
+            <br>
+            <input type="radio" name="optCoche" id="optAudi" >
+            Audi RS7
+            <br>
+            <input type="radio" name="optCoche" id="optFerrari" >
+            Ferrari
+            
+        </fieldset>
+    </form>
+    <p id="salida"></p>
+    <script>
+
+        function coches(){
+            let salida = document.getElementById("salida");
+            let botones = document.getElementsByName("optCoche");
+
+            for (let i = 0; i < botones.length;i++){
+                if(botones[i].checked){
+                    switch(botones[i].id){
+                        case "optMustang":
+                            salida.innerHTML = "<img src='media/coches/ford.jpg' width='400px'>";
+                            break;
+                        case "optCupra":
+                            salida.innerHTML = "<img src='media/coches/cupra.jpeg' width='400px'>";
+                            break;
+                        case "optAudi":
+                            salida.innerHTML = "<img src='media/coches/rs7.jpg' width='400px'>";
+                            break;
+                        case "optFerrari":
+                            salida.innerHTML = "<img src='media/coches/ferrari.jpg' width='400px'>";
+                            break;
+                    }
+                    break;
+                }
+            }
+
+        }
+        function cambiar(){
+            let salida = document.getElementById("salida");
+            let selAnimales = document.getElementById("selAnimales");
+
+            switch(selAnimales.value){
+                case "Oso Polar":
+                    salida.innerHTML = "<img src='media/animales/osoPolar.jpg' width='400px'>";
+                    break;
+                case "Rinoceronte blanco":
+                    salida.innerHTML = "<img src='media/animales/rino.jpg' width='400px'>";
+                    break;
+                case "Elefante":
+                    salida.innerHTML = "<img src='media/animales/elefante.jpg' width='400px'>";
+                    break;
+                case "Tiburón Martillo":
+                    salida.innerHTML = "<img src='media/animales/martillo.jpg' width='400px'>";
+                    break;
+                case "Tigre de Bengala":
+                    salida.innerHTML = "<img src='media/animales/tigre.jpg' width='400px'>";
+                    break;
+            }
+        }
+
+
+    </script>
+</body>
+</html>

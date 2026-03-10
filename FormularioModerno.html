@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Controles especiales</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Formulario con controles modernos</h1>
+    <form action="/submit" method="post">
+        <label for="txtColor">Elige un color:</label>
+        <!--para poner el color por defecto hay que señalarlo en hexadecimal, el nombre no funciona-->
+        <input type="color" value="#880000" id="txtColor" onchange="cambiarColorFondo()" />
+        <!--El onchange sirve para poner la funcion directamente en el selector del color sin pasar por el boton que tiene la funcion para quevaya cambiando el color directamente -->
+
+        <input type="button" value="Mostrar" onclick="cambiarColorFondo()">
+
+    </form>
+
+    <hr>
+    <fieldset>
+        <legend>Controles de fecha y hora</legend>
+        <input type="date" value="2026-09-28" id="txtFecha" max="2026 12-31" min="2026 01-01" />
+        <input type="time" value="09:21" id="txtHora" max="08:00" min="14:00" />
+        <input type="datetime-local" value="2025-03-21T18:34" />
+        <input type="month" value="2024-05" />
+        <input type="range" min="12" max="48" step="3" value="24" id="txtRango" onchange="verValor()" />
+        <p>
+    </fieldset>
+
+    <p id="txtSalida"></p>
+    </p>
+
+    <p>
+        <label for="txtCiudad">Escribe la ciudad:</label>
+        <input type="text" id="txtCiudad" name="txtCiudad" list="listaCiudades" />
+        <datalist id="listaCiudades">
+            <option value="Madrid" />
+            <option value="Barcelona" />
+            <option value="Valencia" />
+            <option value="Sevilla" />
+            <option value="Zaragoza" />
+            <option value="Málaga" />
+            <option value="Murcia" />
+            <option value="Palma" />
+            <option value="Las Palmas" />
+            <option value="Bilbao" />
+            <option value="Alicante"> ALICANTE</option>
+        </datalist>
+    </p>
+    <p>
+        Codigo postal:
+        <input type="text" pattern="[0-9]{5}" title="El codigo postal debe tener 5 digitos" />
+        <input type="text" placeholder="cod,postal" title="El codigo postal debe tener 5 digitos" />
+    </p>
+
+
+
+
+
+    <script>
+        function verValor() {
+            document.getElementById("txtSalida").innerText = document.getElementById("txtRango").value;
+        }
+        function cambiarColorFondo() {
+            document.bgColor = document.getElementById("txtColor").value;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Descomponer en monedas y billetes</title>
+</head>
+<body>
+    <h1>Descomponer una cantidad</h1>
+    <p>
+        <input type="number" id="txtCantidad" min="0">
+    </p>
+    <p>
+        <input type="button" value="Descomponer" onclick="descomponer()">
+    </p>
+    <p>
+        <input type="button" value="Decremento/incremento" onclick="pruebaOperar()">
+    </p>
+    <h3 id="salida"></h3>
+
+    <script>
+        function descomponer(){
+            let cantidad = Number(document.getElementById("txtCantidad").value);
+            let b50, b20, b10, b5, m2, m1;
+
+            // Billetes de 50
+            b50 = parseInt(cantidad / 50);
+            cantidad = cantidad % 50;
+            // Billetes de 20
+            b20 = parseInt(cantidad / 20);
+            cantidad = cantidad % 20;
+            // Billetes de 10
+            b10 = parseInt(cantidad / 10);
+            cantidad = cantidad % 10;
+            // Billetes de 5
+            b5 = parseInt(cantidad / 5);
+            cantidad = cantidad % 5;
+            // Monedas de 2
+            m2 = parseInt(cantidad / 2);
+            cantidad = cantidad % 2;
+            // Monedas de 1
+            m1 = cantidad;
+            document.getElementById("salida").innerHTML = 
+            "Billetes de 50: " + b50 + "<br>" +
+            "Billetes de 20: " + b20 + "<br>" +
+            "Billetes de 10: " + b10 + "<br>" +
+            "Billetes de 5: " + b5 + "<br>" +
+            "Monedas de 2: " + m2 + "<br>" +
+            "Monedas de 1: " + m1;
+        }
+        function pruebaOperar(){
+            let a=6;
+            let b = a++;
+            let c = a + b;
+            alert(c);
+        }
+    </script>
+</body>
+</html>

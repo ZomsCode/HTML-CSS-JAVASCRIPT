@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Bucles</title>
+</head>
+
+<body>
+    <h1>Indicando que numero es mayor y cual es menor</h1>
+    <p>
+        <input type="button" value="A comparar" onclick="comparar()">
+    </p>
+    <p>
+        <input type="button" value="Validar nota académica" onclick="profesorGuiri()">
+    </p>
+    <p>
+        <input type="button" value="Notas europeas" onclick="profesorEspañol()">
+    </p>
+    
+    <h3 id="salida"></h3>
+
+    <script>
+        function comparar() {
+            let num1 = prompt("Primer número:");
+            let num2 = prompt("Segundo numero:");
+            if (num1 > num2) {
+                alert("Mayor: " + num1 +
+                    "\n Menor: " + num2);
+
+            } else if (num2 > num1) {
+                alert("Mayor: " + num2 +
+                    "\nMenor: " + num1);
+            } else {
+                alert("Los numeros son iguales.")
+            }
+        }
+        function profesorGuiri() {
+            let nota = prompt("Introduce la letra americana del alumno");
+            nota= nota.toUpperCase();
+            switch(nota){
+                case "A":
+                    alert("Excelente!!!");
+                    break;
+                case "B":
+                    alert("Muy bien!!");
+                    break;
+                case "C":
+                    alert("Aprobado!");
+                    break;
+                case "D":
+                    alert("Debes mejorar...");
+                    break;
+                case "E":
+                    alert("Estudia más, anda...");
+                    break;
+                case "F":
+                    alert("Lo tuyo es de traca...........");
+                    break;
+                default:
+                    alert("Nota no válida");
+                    break;
+            }
+            /* if(nota == "A"){
+                alert("Excelente!!!");
+            }else if(nota == "B" ){
+                alert("Muy bien!!");
+            }else if(nota == "C" ){
+                alert("Aprobado!");
+            }else if(nota == "D" ){
+                alert("Debes mejorar...");
+            }else if(nota == "E" ){
+                alert("Estudia más, anda...");
+            }else if(nota == "F" ){
+                alert("Lo tuyo es de traca...........");
+            }else{
+                alert("Nota no válida");
+            }*/
+        }
+        function profesorEspañol(){
+            let nota = parseInt( prompt("Introduce la nota del alumno"));
+            
+            switch (nota){
+                case 10:
+                case 9:
+                    alert("Sobresaliente!!");
+                    break;
+                case 8:
+                case 7:
+                    alert("Notable");
+                    break;
+                case 6:
+                    alert("Bien");
+                    break;
+                case 5:
+                    alert("Suficiente");
+                    break;
+                case 4:
+                case 3:
+                    alert("Insuficiente");
+                    break;
+                case 2:
+                case 1:
+                case 0:
+                    alert("Muy deficiente");
+                    break;
+                default:
+                    alert("Nota no valida");
+                    break;
+
+            }
+
+            /* if(nota == 0 || nota == 1 || nota == 2){
+                alert("Muy deficiente");
+            }else if(nota == 3 || nota == 4){
+                alert("Insuficiente");
+            }else if( nota == 5){
+                alert("Suficiente");
+            }else if(nota == 6){
+                alert("Bien");
+            }else if(nota == 7 || nota == 8){
+                alert("Notable");
+            }else if (nota == 9 || nota == 10){
+                alert("Sobresaliente!!");
+            }else{
+                alert("Nota inválida");
+            }*/
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Ejemplo for</title>
+</head>
+<body>
+    <h1>Ejemplo con for</h1>
+    <p>
+        <input type="button" value="Tabla de multiplicar" onclick="TablaMul()">
+        <input type="button" value="De num a num sumando 5" onclick="sumandoCinco()">
+        <input type="button" value="Factorial de un numero" onclick="factorial()">
+    </p>
+    <p id="salida"></p>
+
+    <script>
+        function factorial(){
+            let num = Number(prompt("Numero:"));
+            let resultado = 1;
+            let i;
+
+            for(i = num; i> 0; i--){
+                resultado = resultado * i;
+                
+            }
+            document.getElementById("salida").innerHTML = "El factorial de "+ num + " es " + resultado;
+        }
+
+        function sumandoCinco(){
+            let num1 = Number(prompt("Numero inicial:"));
+            let num2 = Number(prompt("Numero final:"));
+
+            for(let i = num1; i <= num2; i += 5){
+                document.getElementById("salida").innerHTML += i + "<br>";
+            }
+        }
+
+        function TablaMul(){
+            let num = Number(prompt("Numero:"));
+            let resultado = "<strong> la tabla del "+ num + "</strong><br>";
+            let i;
+
+            for(i = 1; i <= 10; i++){
+                //el continue para que no salga el del 4
+                if(i == 4) continue;
+                resultado += num * i + "<br>"
+            }
+            document.getElementById("salida").innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

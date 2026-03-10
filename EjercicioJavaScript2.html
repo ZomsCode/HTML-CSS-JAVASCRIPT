@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="scripts/Externo.js"></script>
+    <title>Botones, texto y colores</title>
+</head>
+<body>
+    <h1 contenteditable>Botones, texto y colores</h1>
+    <p>
+        <input type="button" value="saludar" onclick="saludar()"> &nbsp;
+        <input type="button" value="pedir valores" onclick="pedirValores() ">
+    </p>
+    <p>
+        <input type="button" value="Zaragoza" onclick="ejecutarZaragoza() "> &nbsp;
+        <input type="button" value="Huesca" onclick="ejecutarHuesca() "> &nbsp;
+        <input type="button" value="Teruel" onclick="ejecutarTeruel() ">
+    </p>
+
+    <p id="salida"></p>
+
+    <script>
+        function ejecutarZaragoza() {
+
+            document.getElementById("salida").innerHTML =
+            "Zaragoza es la capital de Aragón, una de las comunidades autónomas del noreste de España. <br/>" +
+            "En el centro de la ciudad se encuentra la basílica barroca de Nuestra Señora del Pilar, orientada hacia el río Ebro. <br/>" +
+            "Es un lugar de peregrinación popular con varias cúpulas y un sagrario dedicado a la Virgen María.<br/>";
+            document.bgColor="yellow";
+        }
+
+        function ejecutarHuesca() {
+
+            document.getElementById("salida").innerHTML =
+            "Huesca es una ciudad en el noreste de España, conocida por su rica historia y su proximidad a los Pirineos." +
+            "<br/> La ciudad cuenta con una catedral gótica impresionante, la Catedral de Huesca, que data del siglo XIII." +
+            "<br/> Huesca también es famosa por sus festivales culturales, como el Festival Internacional de Teatro Clásico de Huesca.";
+
+            document.bgColor="pink";
+        }
+        function ejecutarTeruel() {
+
+            document.getElementById("salida").innerHTML =
+            "Teruel es una ciudad en el este de España, conocida por su arquitectura mudéjar, que combina elementos islámicos y cristianos." +
+            "<br/> La ciudad alberga la famosa Torre de El Salvador y la Catedral de Teruel, ambas declaradas Patrimonio de la Humanidad por la UNESCO." +
+            "<br/> Teruel también es conocida por la leyenda de los Amantes de Teruel, una trágica historia de amor del siglo XIII.";
+
+            document.bgColor="orange";
+        }
+    </script>
+    
+</body>
+</html>

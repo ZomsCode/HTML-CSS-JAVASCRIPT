@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Tiempo que llevo vivido</title>
+</head>
+<body>
+    <h1>Calculo del tiempo que llevo vivido</h1>
+    
+    <label>Fecha 1: <input type="date" id="fecha1"></label><br><br>
+    <label>Fecha 2: <input type="date" id="fecha2"></label><br><br>
+    <input type="button" onclick="tiempoVivido()" value="Calcular">
+    <input type="button" onclick="calcularDias()" value="Calcular dias de diferencia">
+    
+    <div id="salida"></div>
+    
+    <script>
+        function calcularDias(){
+            let dia1 = Number(document.getElementById("fecha1").value.split("-")[2]);
+            let mes1 = Number(document.getElementById("fecha1").value.split("-")[1]);
+            let anyo1 = Number(document.getElementById("fecha1").value.split("-")[0]);
+            let fecha1 = new Date(anyo1, mes1-1, dia1);
+
+            let dia2 = Number(document.getElementById("fecha2").value.split("-")[2]);
+            let mes2 = Number(document.getElementById("fecha2").value.split("-")[1]);
+            let anyo2 = Number(document.getElementById("fecha2").value.split("-")[0]);
+            let fecha2 = new Date(anyo2, mes2-1, dia2);
+
+            let tiempoMs = Math.abs(fecha2.getTime() - fecha1.getTime());
+            let tiempoDias = Math.floor(tiempoMs / (1000 * 60 * 60 * 24));
+
+            document.getElementById("salida").textContent = "La diferencia entre las dos fechas es de " + tiempoDias + " días.";
+        }
+        function tiempoVivido(){
+            let dia = Number(document.getElementById("fecha1").value.split("-")[2]);
+            let mes = Number(document.getElementById("fecha1").value.split("-")[1]);
+            let anyo = Number(document.getElementById("fecha1").value.split("-")[0]);
+            let fecha = new Date(anyo, mes-1, dia);
+            let fechaActual = new Date();
+            let tiempoMs = fechaActual.getTime() - fecha.getTime();
+            let tiemposeg = Math.floor(tiempoMs / 1000);
+            let TiempoMin = Math.floor(tiemposeg / 60);
+            let TiempoHrs = Math.floor(TiempoMin / 60);
+            let tiempoDias = Math.floor(TiempoHrs / 24);
+
+            document.getElementById("salida").textContent = "Has vivido " + tiempoDias + " días, " + TiempoHrs + " horas, " + TiempoMin + " minutos y " + tiemposeg + " segundos.";
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Operaciones</title>
+</head>
+
+<body>
+    <h1>Tu calculadora de confianza</h1>
+    <form>
+        <section>
+            <input type="number" id="txtNum1">
+            <select id="ddlOperador">
+                <option>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+            </select>
+            <input type="number" id="txtNum2">
+            <input type="button" value="=" onclick="operar()">
+            <input type="text" id="txtResultado" readonly>
+        </section><br><br>
+        <section>
+            Número:
+            <input type="text" id="txtnumRed" size="3">
+            Decimales:
+            <input type="text" id="txtdecRed" size="3">
+            <input type="button" value="Redondear" onclick="redondear()">
+            <h3 id="salida"></h3>
+        </section>
+    </form>
+        
+
+    <script>
+        function operar(){
+            let num1 = document.getElementById("txtNum1").value;
+            let num2 = document.getElementById("txtNum2").value;
+            let operador = document.getElementById("ddlOperador").value;
+            let resultado = document.getElementById("txtResultado");
+
+            switch(operador){
+                case "+":
+                    resultado = parseInt(num1) + parseInt(num2);
+                    document.getElementById("txtResultado").value = resultado;
+                    break;
+                case "-":
+                    resultado = parseInt(num1) - parseInt(num2);
+                    document.getElementById("txtResultado").value = resultado;
+                    break;
+                case "*":
+                    resultado = parseInt(num1) * parseInt(num2);
+                    document.getElementById("txtResultado").value = resultado;
+                    break;
+                case "/":
+                    if(num2 != 0){
+                        resultado = parseInt(num1) / parseInt(num2);
+                        document.getElementById("txtResultado").value = resultado;
+                    } else {
+                        document.getElementById("txtResultado").value = "Error";
+                    }
+            }
+        }
+        function redondear (){
+            let numRedondeo = Number(document.getElementById("txtnumRed").value);
+            let decimales = Number(document.getElementById("txtdecRed").value);
+            let resulRed = 0;
+            resulRed = numRedondeo * (10 ** decimales);  
+            resulRed = Math.round(resulRed);
+            resulRed = resulRed / (10 ** decimales);
+            document.getElementById("salida").innerText = "Número redondeado: " + resulRed;          
+        }
+    </script>
+
+</body>
+
+</html>

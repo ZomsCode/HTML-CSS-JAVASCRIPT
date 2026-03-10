@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Objeto String</title>
+</head>
+<body>
+    <h1>Objeto String</h1>
+
+    <p>
+        Frase:
+        <input type="text" id="txtFrase" size="50">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Posicion:
+        <input type="text" id="txtPosicion" size="5">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Inicio:
+        <input type="text" id="txtInicio" size="2">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        Final:
+        <input type="text" id="txtFin" size="2">
+        
+    </p>
+    <input type="button" value="Longitud" onclick="verLargo()">
+    <input type="button" value="Caracter en posicion" onclick="verPosicion()">
+    <input type="button" value="Al reves" onclick="verAlReves()">
+    <input type="button" value="Extraer" onclick="extraer()">
+    <input type="button" value="Mayusc/Minus" onclick="mayusminus()">
+    <input type="button" value="Rellenar" onclick="rellenar()">
+
+    <p id="salida"></p>
+    
+    <script>
+        function rellenar(){
+            let frase = document.getElementById("txtFrase").value;
+            let fraseRellenada = document.getElementById("txtInicio");
+            let valor = document.getElementById("txtFin").value;
+            document.getElementById("salida").innerHTML =
+            "Por la izquierda: <em>" + frase.padStart(valor, fraseRellenada.value) + "</em><br>" +
+            "Por la derecha: <em>" + frase.padEnd(valor, fraseRellenada);
+           
+        }
+        function mayusminus(){
+            let frase = document.getElementById("txtFrase").value;
+            document.getElementById("salida").innerHTML = 
+            "Mayúsculas: <em>" + frase.toUpperCase() + "</em><br>" +
+            "Minúsculas: <em>" + frase.toLowerCase() + "</em>"+
+            "<br>Modo frase: <em>" + frase.trim()+ "</em>"  ;
+
+        }
+        function extraer(){
+            let frase = document.getElementById("txtFrase").value;
+            let inicio = document.getElementById("txtInicio").value;
+            let fin = document.getElementById("txtFin").value;
+           
+            document.getElementById("salida").innerHTML = 
+            "substring: <em>" + frase.substring(inicio, fin) + "</em><br>" +
+            "slice: <em>" + frase.slice(inicio, fin) + "</em><br>" +
+            "substr: <em>" + frase.substr(inicio, fin - inicio) + "</em>";
+
+        }
+        function verAlReves(){
+            let frase = document.getElementById("txtFrase").value;
+            let largo = frase.length;
+            let fraseAlReves = "";
+            // Se pone largo - 1 porque los índices de los caracteres
+            //  en una cadena empiezan en 0, 
+            // por lo que el último carácter se encuentra en 
+            // la posición largo - 1. 
+            for(let i = largo - 1; i >= 0; i--){
+                fraseAlReves += frase.charAt(i);
+            }
+            document.getElementById("salida").innerHTML = fraseAlReves;
+        }
+        function verLargo(){
+            let frase = document.getElementById("txtFrase").value;
+            document.getElementById("salida").innerHTML = 
+            "La longitud de la frase es: <em>" + frase.length + "</em>";
+
+        }
+        function verPosicion(){
+            let frase = document.getElementById("txtFrase").value;
+            let posicion = document.getElementById("txtPosicion").value;
+            document.getElementById("salida").innerHTML = 
+            "charAt: <em>" + frase.charAt(posicion) + "</em><br>" +
+            "charCodeAt: <em>" + frase.charCodeAt(posicion) + "</em><br>" +
+            "At: <em>" + frase.at(posicion) + "</em>";
+
+
+        }
+    </script>
+</body>
+</html>

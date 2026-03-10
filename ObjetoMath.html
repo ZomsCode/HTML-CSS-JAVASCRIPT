@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>El objeto Math</title>
+</head>
+<body>
+    <h1>El objeto Math</h1>
+    <input type="button" value="Generar números aleatorios" onclick="numeroRandom()">
+    <input type="button" value="Generar números aleatorios entre dos numeros" onclick="aleatorioEntre()">
+        <input type="button" value="Lanzar la moneda" onclick="lanzarMoneda()">
+    
+    <div id="salida"></div>
+    <script>
+        /*alert("Valor de PI: " + Math.PI);
+        alert("Raíz cuadrada de 16: " + Math.sqrt(16));
+        alert("Número aleatorio entre 0 y 1: " + Math.random());
+        alert("Valor absoluto de -10: " + Math.abs(-10));
+        alert("Redondeo de 4.7: " + Math.round(4.7));
+        alert("Potencia de 2 elevado a 3: " + Math.pow(2, 3));
+        alert("Valor máximo entre 5, 10 y 3: " + Math.max(5, 10, 3));
+        alert("Valor mínimo entre 5, 10 y 3: " + Math.min(5, 10, 3));
+        alert("Redondeo hacia abajo de 4.9: " + Math.floor(4.9));
+        alert("Redondeo hacia arriba de 4.1: " + Math.ceil(4.1));
+        alert("Raíz cuadrada de 25: " + Math.sqrt(25));
+        alert("Parte entera de 4.9: " + Math.trunc(4.9));*/
+
+        function numeroRandom(){
+            let i = 0;
+            let control = document.getElementById("salida")
+            while(i<= 25){
+                control.innerHTML += Math.random() + "<br>";
+                i++;
+            }
+        }
+        function aleatorioEntre(){
+            let min = parseInt(prompt("Ingrese el valor mínimo:"));
+            let max = parseInt(prompt("Ingrese el valor máximo:"));
+            let i = 0;
+            let control = document.getElementById("salida");
+            control.innerHTML += "<br>Números aleatorios entre " + min + " y " + max + ":<br>";
+            while(i<= 25){
+                let numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+                control.innerHTML += numeroAleatorio + "<br>";
+                i++;
+            }
+        }
+        function lanzarMoneda(){
+            let i = 0;
+            let control = document.getElementById("salida");
+            
+
+        }
+
+        
+    </script>
+    
+</body>
+</html>

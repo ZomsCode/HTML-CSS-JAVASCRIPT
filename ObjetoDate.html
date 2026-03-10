@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trabajo con Date</title>
+</head>
+<body>
+    <h1>Trabajo con el objeto Date</h1>
+    <!-- <p>
+        <input type="button" value="Crear fecha" onclick="crearFecha()">
+    </p> -->
+    <p>
+        Día:
+        <input type="text" size="3" id="txtDia">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Mes:
+        <input type="text" size="3" id="txtMes">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Año:
+        <input type="text" size="3" id="txtAnyo">
+    </p>
+    <p>
+        <input type="button" value="Añadir días" onclick="sumarDias()">
+    </p>
+    <p id="salida"></p>
+    <script>
+        function sumarDias(){
+            let dia = Number(document.getElementById("txtDia").value);
+            let mes = Number(document.getElementById("txtMes").value);
+            let anyo = Number(document.getElementById("txtAnyo").value);
+
+            let fecha = new Date(anyo, mes-1, dia);
+
+            let dias = Number(prompt("Días a añadir: "));
+
+            let msFecha = fecha.getTime();
+            let msDias = dias * 24 * 60 * 60 *1000;
+
+            let msFechaNueva = msFecha + msDias;
+
+            let nuevaFecha = new Date(msFechaNueva);
+
+            document.getElementById("salida").textContent =
+                mostrarFecha(nuevaFecha.getDate(), nuevaFecha.getMonth(), 
+                nuevaFecha.getFullYear());
+        }
+
+        function mostrarFecha(dia, mes, anyo){
+            let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            let diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves",
+                "Viernes", "Sábado"];
+            let fecha = new Date(anyo, mes, dia);
+            
+            return "Es " + diasSemana[fecha.getDay()] + " " + fecha.getDate() + 
+                " de " + meses[fecha.getMonth()] + " del " + fecha.getFullYear() ;
+        }
+
+        function crearFecha(){
+            let dia = Number(prompt("Día: "));
+            let mes = Number(prompt("Mes: "));
+            let anyo = Number(prompt("Año: "));
+
+            let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            let diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves",
+                "Viernes", "Sábado"];
+            let fecha = new Date(anyo, mes-1, dia);
+            
+            document.getElementById("salida").textContent = 
+                "Es " + diasSemana[fecha.getDay()] + fecha.getDate() + " de " + meses[fecha.getMonth()] + 
+                    " del " + fecha.getFullYear() ;
+        }
+    </script>
+</body>
+</html>

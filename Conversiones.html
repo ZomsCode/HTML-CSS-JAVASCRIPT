@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Conversiones</title>
+</head>
+<body>
+    <h1>Página de conversiones</h1>
+    <form>
+        <h2>De millas a kilómetros</h2>
+        Millas: <input type="text" id="txtMillas">
+
+        <input type="button" value="A kilómetros" onclick="aKm()">
+        <hr>
+        <h2>De Celsius a Fahrenheit</h2>
+        Celsius: <input type="text" id="txtCelsius">
+        <input type="button" value="A Fahrenheit" onclick="aFahrenheit()">
+        <hr>
+        <h2>De pies a centimetros</h2>
+        Pies: <input type="text" id="txtPies">
+        <input type="button" value="A Centímetros" onclick="aCentimetros()">
+    </form>
+
+    <h3 id="salida"></h3>
+    <script>
+        
+        function aKm(){
+            let millas = document.getElementById("txtMillas").value;
+            let km = millas * 1.60934;
+            document.getElementById("salida").innerText = km + " kilómetros.";
+        }
+        function aFahrenheit(){
+            let celsius = document.getElementById("txtCelsius").value;
+            let fahrenheit = (celsius * 9/5) + 32;
+            document.getElementById("salida").innerText = fahrenheit + " °F.";
+        }
+        function aCentimetros(){
+            let pies = document.getElementById("txtPies").value;
+            let centimetros = pies * 30.48;
+            document.getElementById("salida").innerText = centimetros + " centímetros.";
+        }
+    </script>
+    
+</body>
+</html>

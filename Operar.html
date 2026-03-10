@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduccion a JavaScript</title>
+</head>
+<body>
+    <form>
+        <p>
+            Primer Numero:
+            <input type="text" id="num1"size="2">
+        </p>
+        <p>
+            Segundo Numero:
+            <input type="text" id="num2" size="2">
+        </p>
+        <p>
+            <input type="button" value="Operar" onclick="operar()" >
+        </p>
+        <p id="salida"></p>
+    </form>
+    <script>
+        function operar(){
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+
+            document.getElementById("salida").innerText = 
+            "La resta es: <strong>" + (num1 - num2) + "</strong><br>" +
+            "La multiplicacion es: <strong>" + (num1 * num2) + "</strong><br>" +
+            "La division es: <strong>" + (num1 / num2) + "</strong><br>"
+            "La suma es: <strong>" + (Number(num1) + Number(num2)) + "</strong><br>"
+            "El resto es: <strong>" + (num1 % num2) + "</strong><br>";
+        }
+    </script>
+    
+</body>
+</html>

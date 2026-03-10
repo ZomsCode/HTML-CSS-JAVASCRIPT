@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>Trabajar con Arrays</h1>
+    <input type="button" value="Crear Array" onclick="crearArray()">
+    <input type="button" value="Ordenar Array" onclick="ordenarArray()">
+
+    <p id="salida"></p>
+    
+    <script>
+        function ordenarArray(){
+            let frutas = ["Manzana", "Pera", "Naranja", "Plátano", "Fresa"];
+            //push para añadir un elemento al final del array
+            
+            // funcion shift para eliminar el primer elemento del array, por lo que los demas se desplazan una posición hacia adelante.
+          
+            // funcion unshift para añadir un elemento al principio del array
+          
+            // funcion delete para eliminar un elemento del array, pero no cambia la longitud del array, por lo que el elemento eliminado queda como undefined.
+           
+            //funcion concat para unir dos arrays, devuelve un nuevo array con los elementos de ambos arrays.
+           
+            //elimino el ultimo elemento del array. se puede hacer alert(frutas.pop()) para mostrar el elemento eliminado
+
+            // funcion copyWithin para copiar una parte del array dentro del mismo array, sobrescribiendo los elementos existentes.
+            
+            // funcion splice para eliminar o reemplazar elementos del array, devuelve un nuevo array con los elementos eliminados.
+            
+
+            frutas.pop();
+            frutas.push("Kiwi");
+            frutas[frutas.length] = "Melón";
+            frutas.sort() ;
+            let resultado = "";
+
+            for (i= 0; i < frutas.length; i++){
+                resultado += frutas[i] + " ";
+            }
+
+            document.getElementById("salida").innerText = resultado;
+        }
+        function crearArray(){
+            let frutas = ["Manzana", "Pera", "Naranja", "Plátano", "Fresa"];
+            alert(frutas[2]);
+
+            let ciudades = [];
+            ciudades[0] = "Madrid";
+            ciudades[1] = "Barcelona";
+            ciudades[2] = "Valencia";
+            ciudades[3] = "Sevilla";
+            ciudades[4] = "Zaragoza";
+            ciudades[5] = "Málaga";
+            ciudades[6] = "Murcia";
+            alert(ciudades[4]);
+
+            //cambiar un valor del array
+            ciudades[4] = "Bilbao";
+
+            //Poner nombre a los elementos
+            let persona = {
+                nombre: "Juan",
+                edad: 30,
+                ciudad: "Madrid"};
+            
+            alert(persona.nombre);
+        }   
+    </script>
+</body>
+</html>

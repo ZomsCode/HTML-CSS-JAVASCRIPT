@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Taller "El Reparo"</title>
+</head>
+<body>
+    <h1>Bienvenido al Taller "El Reparo"</h1>
+    <p>
+    <fieldset>
+        <legend>Seleccione que reparaciones necesita:</legend>
+        <input type="checkbox" id="chkAceite" onchange="calcularCosto()"> Cambio de aceite <br> <br>
+        <input type="checkbox" id="chkFiltros" onchange="calcularCosto()"> Revisión de Filtros <br><br>
+        <input type="checkbox" id="chkBujias" onchange="calcularCosto()"> Cambio de Bujías <br><br>
+        <input type="checkbox" id="chkVentanilla" onchange="calcularCosto()"> Arreglo de ventanilla <br><br>
+        <input type="checkbox" id="chkAntiniebla" onchange="calcularCosto()"> Luces antiniebla <br><br>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Factura con descuentos aplicables</legend>
+        <p>
+            Importe:
+            <input type="text" id="txtImporte" readonly>
+        </p>
+        Descuento:
+        <select id="ddlDescuento" onchange="calcularCosto()">
+            <option disabled selected> </option>
+            <option value="0.05">5%</option>
+            <option value="0.1">10%</option>
+            <option value="0.15">15%</option>
+            <option value="0.2">20%</option>
+        </select><br>
+        <p>
+            Importe del descuento:
+            <input type="text" id="txtDto" readonly>
+        </p>
+        <p>
+            Base Imponible:
+            <input type="text" id="txtBase" readonly>
+        </p>
+        <p>
+            I.V.A. (21%):
+            <input type="text"  id="txtIva"readonly >
+        </p>
+        <p>
+            A PAGAR:
+            <input type="text" id="txtAPagar"readonly>
+        </p>
+    </fieldset>
+    </p>
+    <script>
+        function calcularCosto() {
+            let importe = 0;
+            let dto = document.getElementById("ddlDescuento").value;
+            let iva = 0.21;
+            let aPagar = 0;
+            if (document.getElementById("chkAceite").checked) {
+                importe += 65;
+            }
+            if (document.getElementById("chkFiltros").checked) {
+                importe += 35;
+            }
+            if (document.getElementById("chkBujias").checked) {
+                importe += 25;
+            }
+            if (document.getElementById("chkVentanilla").checked) {
+                importe += 70;
+            }
+            if (document.getElementById("chkAntiniebla").checked) {
+                importe += 15;
+            }
+            document.getElementById("txtImporte").value = importe;
+            document.getElementById("txtDto").value = importe * dto;
+            document.getElementById("txtBase").value = importe - (importe * dto);
+            let baseImpon = importe - (importe * dto);
+            //.toFixed para controlar la cantidad de decimales que salen
+            document.getElementById("txtIva").value = baseImpon * iva.toFixed(2);
+            document.getElementById("txtAPagar").value = baseImpon + (baseImpon * iva);
+        }
+    </script>
+</body>
+</html>

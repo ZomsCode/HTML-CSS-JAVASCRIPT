@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Elementos de formulario</title>
+</head>
+
+<body>
+    <h1>Formulario de contacto</h1>
+    <form action="/submit" method="post">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" size="5" maxlength="5" required><br><br>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <p>
+            <label for="listCiudad">Elige una ciudad:</label>
+            <select id="listCiudad" name="listCiudad" size="1">
+                <optgroup label="Ciudades Españolas">
+                    <option>Madrid</option>
+                    <option>Barcelona</option>
+                    <option>Valencia</option>
+                </optgroup>
+                <optgroup label="Ciudades Internacionales">
+                    <option>Nueva York</option>
+                    <option>Londres</option>
+                    <option>Tokio</option>
+                </optgroup>
+            </select><br><br>
+            <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+            <label for="subscribe">Suscribirse al boletín</label><br><br
+        </p>
+        <p>
+            Dime tu edad:<br>
+            <input type="radio" name="rbtEdad" id="rbtJoven">Menos de 35<br>
+            <input type="radio" name="rbtEdad" id="rbtMayor">Entre 35 y 65<br>
+            <input type="radio" name="rbtEdad" id="rbtAnciano">Más de 65<br><br>
+        </p>
+
+
+        <label for="message">Mensaje:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" maxlength="20"></textarea><br><br>
+        <p>
+            
+            <input type="file" id="fileUpload" name="fileUpload">
+        </p>
+
+        <input type="submit" value="Enviar">
+    </form>
+    <hr>
+    <form>
+        <p>
+            <label </p>
+    </form>
+
+
+</body>
+
+</html>
