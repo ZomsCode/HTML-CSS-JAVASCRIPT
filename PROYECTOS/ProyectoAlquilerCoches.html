@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alquiler de coches</title>
+    <link rel="stylesheet" type="text/css" href="scripts/ProyectoAlquilerCoches.css">
+
+</head>
+
+<body>
+    <header>
+        <h1 id="titulo">Concesionario Martínez</h1>
+        <h2>Tu alquiler de coches de confianza</h2>
+    </header><br><br>
+
+    <fieldset class="datos">
+        <legend>Datos del cliente</legend>
+        <table>
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" id="txtNombre"></td>
+                <td>Apellidos:</td>
+                <td><input type="text" id="txtApellidos"></td>
+            </tr>
+            <tr>
+                <td>Teléfono:</td>
+                <td><input type="number" id="txtTelefono"></td>
+                <td>DNI:</td>
+                <td><input type="text" id="txtDni"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Email:</td>
+                <td colspan="2"><input type="text" id="txtEmail"></td>
+            </tr>
+            <tr>
+                <td colspan="4"><br>
+                    <input type="button" value="Registrar cliente" onclick="registrarCliente()">
+                </td>
+            </tr>
+        </table>
+    </fieldset><br><br>
+
+    <div id="salidaDatosCliente"></div>
+
+    <svg width="100%" height="20" viewBox="0 0 110 10" preserveAspectRatio="none">
+        <polyline
+            points="5 5, 13 5, 15 2, 17 8, 19 2, 21 8, 23 2, 25 8, 27 2, 29 8, 31 2, 33 8, 35 2, 37 8, 39 2, 41 8, 43 2, 45 8, 47 2, 49 8, 51 2, 53 8, 55 2, 57 8, 59 2, 61 8, 63 2, 65 8, 67 2, 69 8, 71 2, 73 8, 75 2, 77 8, 79 2, 81 8, 83 2, 85 8, 87 2, 89 8, 91 2, 93 8, 95 2, 97 8, 99 5, 105 5"
+            stroke="black" stroke-width="0.5" fill="none" />
+    </svg><br><br>
+
+
+    <fieldset class="datos">
+        <legend>Datos del Alquiler</legend>
+        <table>
+            <tr>
+                <td>Tipo de coche:</td>
+                <td colspan="3">
+                    <select id="tipoCoche" onchange="calculoPrecioBase(); calculoSeguro();">
+                        <option label=" " disabled selected></option>
+                        <option value="economico">(1) Económico</option>
+                        <option value="compacto">(2) Compacto</option>
+                        <option value="familiar">(3) Familiar</option>
+                        <option value="deportivo">(4) Deportivo</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha de inicio:</td>
+                <td><input type="date" id="fechaInicio" onchange="calculoSeguro()"></td>
+                <td>Fecha de fin:</td>
+                <td><input type="date" id="fechaFin" onchange="calculoSeguro()"></td>
+            </tr>
+            <tr>
+                <td>Km. Inicial:</td>
+                <td><input type="number" id="kmInicial" onchange="calculokm()"></td>
+                <td>Km. Final:</td>
+                <td><input type="number" id="kmFinal" onchange="calculokm()"></td>
+            </tr>
+            <tr>
+                <td>¿Qué seguro desea?</td>
+                <td>
+                    <input type="radio" id="seguroA" name="seguro" value="A" onclick="calculoSeguro()">Seguro A
+                </td>
+                <td colspan="2">
+                    <input type="radio" id="seguroB" name="seguro" value="B" onclick="calculoSeguro()">Seguro B
+                </td>
+            </tr>
+            <tr>
+
+                <td>¿Descuento aplicable? (20%)</td>
+                <td>
+                    <input type="radio" id="tarjetaA" name="tarjeta" value="A" onclick="calcularSubtotal()">Si
+
+                </td>
+                <td colspan="2">
+                    <input type="radio" id="tarjetaB" name="tarjeta" value="B" onclick="calcularSubtotal()">No
+                </td>
+            </tr>
+        </table>
+    </fieldset><br><br>
+    <svg width="100%" height="20" viewBox="0 0 110 10" preserveAspectRatio="none">
+        <polyline
+            points="5 5, 13 5, 15 2, 17 8, 19 2, 21 8, 23 2, 25 8, 27 2, 29 8, 31 2, 33 8, 35 2, 37 8, 39 2, 41 8, 43 2, 45 8, 47 2, 49 8, 51 2, 53 8, 55 2, 57 8, 59 2, 61 8, 63 2, 65 8, 67 2, 69 8, 71 2, 73 8, 75 2, 77 8, 79 2, 81 8, 83 2, 85 8, 87 2, 89 8, 91 2, 93 8, 95 2, 97 8, 99 5, 105 5"
+            stroke="black" stroke-width="0.5" fill="none" />
+    </svg><br><br>
+
+    <fieldset class="datos">
+        <legend>Factura</legend><br>
+        <table>
+            <tr>
+                <td>Precio Base:</td>
+                <td>
+                    <input type="number" id="precioBase" readonly /><br><br>
+                </td>
+            </tr>
+
+        </table>
+
+
+        <fieldset class="importe">
+            <legend>Importe Kilómetros</legend>
+            <section>
+                <label>Kilometros recorridos:</label>
+                <input type="number" id="cantidadKm" readonly /><br>
+                <label>Precio Km:</label>
+                <input type="number" id="precioKm" readonly /><br>
+                <label>Total Km:</label>
+                <input type="number" id="totalKm" readonly /><br>
+            </section>
+        </fieldset><br>
+
+        <fieldset class="importe">
+            <legend>Importe Seguro</legend>
+            <section>
+                <label>Número de dias:</label>
+                <input type="number" id="diasSeguro" readonly /><br>
+                <label>Precio Seguro:</label>
+                <input type="number" id="precioSeguro" readonly /><br>
+                <label>Total Seguro:</label>
+                <input type="number" id="totalSeguro" readonly /><br>
+            </section>
+        </fieldset><br>
+        <section>
+            <table>
+                <tr>
+                    <td>Subtotal:</td>
+                    <td><input type="number" id="importeSubtotal" readonly /></td>
+                </tr>
+                <tr id="filaDescuento">
+                    <td>Descuento:</td>
+                    <td><input type="number" id="descuento" readonly /></td>
+                </tr>
+                <tr>
+                    <td>Base Imponible:</td>
+                    <td><input type="number" id="baseImponible" readonly /></td>
+                </tr>
+                <tr>
+                    <td>I.V.A.:</td>
+                    <td><input type="number" id="iva" readonly /></td>
+                </tr>
+                <tr>
+                    <td class="total"><strong>Total a Pagar:</strong></td>
+                    <td><input type="number" id="totalPagar" readonly /></td>
+                </tr>
+            </table>
+
+        </section>
+
+    </fieldset><br><br>
+
+    <script>
+        var precioKm = 0;
+        var tipo = document.getElementById("tipoCoche").value;
+
+        function calcularSubtotal() {
+            let precioBase = Number(document.getElementById("precioBase").value);
+            let totalKm = Number(document.getElementById("totalKm").value);
+            let totalSeguro = Number(document.getElementById("totalSeguro").value);
+            let iva = 0.21;
+
+            let subtotal = precioBase + totalKm + totalSeguro;
+            document.getElementById("importeSubtotal").value = subtotal.toFixed(2);
+            let descuento = 0;
+            if (document.getElementById("tarjetaA").checked) {
+                descuento = subtotal * 0.2;
+            }
+            document.getElementById("descuento").value = descuento.toFixed(2);
+
+            document.getElementById("baseImponible").value = (subtotal - descuento).toFixed(2);
+            let baseImpon = subtotal - descuento;
+            document.getElementById("iva").value = (baseImpon * iva).toFixed(2);
+            document.getElementById("totalPagar").value = (baseImpon + (baseImpon * iva)).toFixed(2);
+        }
+
+        function calculoSeguro() {
+            let importeSeguro;
+            let fechaInicio = new Date(document.getElementById("fechaInicio").value);
+            let fechaFin = new Date(document.getElementById("fechaFin").value);
+
+            let numDias = 0;
+            if (fechaFin >= fechaInicio) {
+                numDias = Math.floor((fechaFin - fechaInicio) / (1000 * 60 * 60 * 24)) + 1;
+            }
+
+            let tipo = document.getElementById("tipoCoche").value;
+
+            if (document.getElementById("seguroA").checked) {
+                switch (tipo) {
+                    case "economico":
+                        importeSeguro = 6;
+                        break;
+                    case "compacto":
+                        importeSeguro = 9;
+                        break;
+                    case "familiar":
+                        importeSeguro = 12;
+                        break;
+                    case "deportivo":
+                        importeSeguro = 15;
+                        break;
+                    default:
+                        importeSeguro = 0;
+                }
+            } else if (document.getElementById("seguroB").checked) {
+                switch (tipo) {
+                    case "economico":
+                        importeSeguro = 10;
+                        break;
+                    case "compacto":
+                        importeSeguro = 14;
+                        break;
+                    case "familiar":
+                        importeSeguro = 18;
+                        break;
+                    case "deportivo":
+                        importeSeguro = 22;
+                        break;
+                    default:
+                        importeSeguro = 0;
+                }
+            } else {
+                importeSeguro = 0;
+            }
+
+            document.getElementById("diasSeguro").value = numDias;
+            document.getElementById("precioSeguro").value = importeSeguro;
+            let totalSeguro = numDias * importeSeguro;
+            document.getElementById("totalSeguro").value = totalSeguro;
+            calcularSubtotal();
+        }
+        function calculokm() {
+            let kmRecorridos = 0;
+            let kmInicial = Number(document.getElementById("kmInicial").value);
+            let kmFinal = Number(document.getElementById("kmFinal").value);
+
+            if (kmFinal > kmInicial && kmFinal != 0) {
+                kmRecorridos = kmFinal - kmInicial;
+                document.getElementById("cantidadKm").value = kmRecorridos;
+            }
+            document.getElementById("totalKm").value = precioKm * kmRecorridos;
+            calcularSubtotal();
+        }
+        function calculoPrecioBase() {
+            var tipo = document.getElementById("tipoCoche").value;
+            switch (tipo) {
+                case "economico":
+                    precioKm = 0.02;
+                    break;
+                case "compacto":
+                    precioKm = 0.03;
+                    break;
+                case "familiar":
+                    precioKm = 0.05;
+                    break;
+                case "deportivo":
+                    precioKm = 0.08;
+                    break;
+            }
+            document.getElementById("precioKm").value = precioKm;
+
+            let precioBase = 0;
+            switch (tipo) {
+                case "economico":
+                    precioBase = 35;
+                    break;
+                case "compacto":
+                    precioBase = 40;
+                    break;
+                case "familiar":
+                    precioBase = 45;
+                    break;
+                case "deportivo":
+                    precioBase = 50;
+                    break;
+            }
+            document.getElementById("precioBase").value = precioBase;
+            calcularSubtotal();
+        }
+        function registrarCliente() {
+            let nombre = document.getElementById("txtNombre").value;
+            let apellidos = document.getElementById("txtApellidos").value;
+            let telefono = document.getElementById("txtTelefono").value;
+            let dni = document.getElementById("txtDni").value;
+            let email = document.getElementById("txtEmail").value;
+
+            if (nombre === "" || apellidos === "" || telefono === "" || dni === "" || email === "") {
+                document.getElementById("salidaDatosCliente").innerHTML =
+                    "<em><strong>Debes rellenar todos los campos para registrar al cliente.</strong></em>";
+            } else {
+                document.getElementById("salidaDatosCliente").innerHTML =
+                    "<strong>El cliente  ha sido registrado correctamente.</strong>";
+            }
+        }
+    </script>
+</body>
+
+</html>
